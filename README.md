@@ -11,17 +11,23 @@ Objectif du TP : Comprendre les mécanismes du rooting.
 
 
 <img width="838" height="563" alt="Image" src="https://github.com/user-attachments/assets/9bcc2fbb-5066-4a6f-9830-452c80b21497" />
+
 # Démarrer un AVD PROPRE
+
 <img width="694" height="71" alt="Image" src="https://github.com/user-attachments/assets/9839c9a6-735d-48f5-a3ad-91fb9e6202af" />
 
 <img width="389" height="826" alt="Image" src="https://github.com/user-attachments/assets/43da7e8b-9af8-4681-bbc9-c0b57f1e6e7f" />
+
 # Installer et lancer DIVA
+
 <img width="995" height="300" alt="Image" src="https://github.com/user-attachments/assets/d51bf374-66e3-4e80-b35e-226d7ed6264b" />
 
 <img width="1011" height="81" alt="Image" src="https://github.com/user-attachments/assets/cdd03891-a468-4f9a-b297-4d132cddfaa8" />
 
 <img width="435" height="794" alt="Image" src="https://github.com/user-attachments/assets/52b6f6ca-1f94-4b86-a1ba-8f3ee7bbddf7" />
+
 # 3 scénarios simples
+
 Rechercher un item Sélection du module " INSECURE LOGGING"
 <img width="411" height="712" alt="Image" src="https://github.com/user-attachments/assets/8650d188-a99b-45b9-b168-4eb106a140b8" />
 
