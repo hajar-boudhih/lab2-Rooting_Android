@@ -32,119 +32,54 @@ problémes d'accées
 
 <img width="402" height="763" alt="Image" src="https://github.com/user-attachments/assets/fe6369dc-f59c-4da7-80cd-8496c63c952f" />
 
-Sécurité Android : Vue d’Ensemble
-
-Android s’appuie sur une conception de sécurité en plusieurs niveaux afin d’assurer la protection des données et la fiabilité du système.
-Chaque application est isolée grâce au mécanisme de sandboxing, qui empêche toute interaction directe non autorisée entre processus.
-Le modèle de permissions contrôle strictement l’accès aux ressources critiques (stockage, caméra, contacts, etc.).
-Par ailleurs, l’intégrité du système empêche les modifications non légitimes des composants essentiels de l’OS.
-
+# Sécurité Android : Vue d’Ensemble
+Android s’appuie sur une conception de sécurité en plusieurs niveaux afin d’assurer la protection des données et la fiabilité du système.Chaque application est isolée grâce au mécanisme de sandboxing, qui empêche toute interaction directe non autorisée entre processus.Le modèle de permissions contrôle strictement l’accès aux ressources critiques (stockage, caméra, contacts, etc.).Par ailleurs, l’intégrité du système empêche les modifications non légitimes des composants essentiels de l’OS.
 Lorsque le système est rooté, ces mécanismes fondamentaux sont affaiblis, car l’accès super-utilisateur permet de contourner les restrictions natives et d’obtenir un contrôle global sur l’environnement Android.
 
-Verified Boot
-
+#Verified Boot
 L’appareil utilisé fonctionne sous Android 9, version prenant en charge le mécanisme Verified Boot.
 Cependant, la propriété système associée n’est pas disponible. Cette absence suggère fortement que le bootloader est déverrouillé, ce qui rend impossible la consultation fiable de l’état de sécurité.
 
-Dans ce contexte, la « chain of trust » décrite dans la documentation Android ne semble ni totalement active ni pleinement exploitable sur l’appareil testé.
-
-Rooting : Définition et Impact
-
+# Rooting : Définition et Impact
 Le rooting correspond à l’obtention des privilèges super-utilisateur (UID 0).
 Ce niveau d’accès permet un contrôle complet du système Android.
 
 En conséquence :
-
-Les protections natives comme Verified Boot peuvent être contournées.
-
-Le sandboxing peut être neutralisé.
-
-La confiance accordée à l’intégrité du système est profondément altérée.
-
-Objectif d’un Environnement Rooté en Laboratoire
-
+Les protections natives comme Verified Boot peuvent être contournées.Le sandboxing peut être neutralisé.La confiance accordée à l’intégrité du système est profondément altérée.
 Un environnement rooté contrôlé permet d’analyser en profondeur la sécurité d’une application.
 Grâce aux privilèges élevés, il devient possible d’examiner des éléments internes normalement inaccessibles, notamment au niveau du stockage interne et des fichiers système.
-
 Cette approche facilite l’identification de faiblesses structurelles ou de mauvaises pratiques de sécurité.
 
-Analyse des Risques
+#Analyse des Risques
+Travailler sur un système rooté implique plusieurs risques :L’intégrité globale du système ne peut plus être garantie.Les résultats des tests peuvent être influencés par la modification de l’environnement.Si l’appareil sort du cadre du laboratoire, la surface d’attaque devient beaucoup plus large.Le dispositif devient potentiellement vulnérable aux malwares et aux attaques externes.Mesures de Sécurisation du Laboratoire
+Afin de limiter ces risques, plusieurs précautions ont été appliquées :Isolation réseau complète pour empêcher toute communication non autorisée.Utilisation exclusive de données fictives afin d’éviter toute fuite réelle.Support dédié uniquement aux expérimentations.Absence de comptes personnels sur l’appareil de test.Installation d’APK provenant de sources vérifiées.Documentation systématique de chaque étape à l’aide de captures d’écran horodatées.
 
-Travailler sur un système rooté implique plusieurs risques :
-
-L’intégrité globale du système ne peut plus être garantie.
-
-Les résultats des tests peuvent être influencés par la modification de l’environnement.
-
-Si l’appareil sort du cadre du laboratoire, la surface d’attaque devient beaucoup plus large.
-
-Le dispositif devient potentiellement vulnérable aux malwares et aux attaques externes.
-
-Mesures de Sécurisation du Laboratoire
-
-Afin de limiter ces risques, plusieurs précautions ont été appliquées :
-
-Isolation réseau complète pour empêcher toute communication non autorisée.
-
-Utilisation exclusive de données fictives afin d’éviter toute fuite réelle.
-
-Support dédié uniquement aux expérimentations.
-
-Absence de comptes personnels sur l’appareil de test.
-
-Installation d’APK provenant de sources vérifiées.
-
-Documentation systématique de chaque étape à l’aide de captures d’écran horodatées.
-
-Référentiel OWASP MASVS
-
+# Référentiel OWASP MASVS
 Le standard OWASP MASVS définit les exigences de sécurité applicables aux applications mobiles.
 L’exigence MASVS-STORAGE-1 stipule que toute donnée sensible (mots de passe, clés API, tokens) doit être chiffrée avant d’être stockée localement.
 
-Référentiel OWASP MASTG
-
-Le MASTG complète le MASVS en proposant des méthodologies techniques d’audit.
-
-Deux types de tests ont été effectués :
-
-1. Test de stockage
-
-Inspection directe du répertoire :
-/data/data/jakhar.aseem.diva/shared_prefs/
-
+#Référentiel OWASP MASTG
+Le MASTG complète le MASVS en proposant des méthodologies techniques d’audit.Deux types de tests ont été effectués :
+1. Test de stockageInspection directe du répertoire :/data/data/jakhar.aseem.diva/shared_prefs/
 L’accès root a permis de constater la présence d’identifiants stockés en clair.
 
-2. Analyse dynamique
-
-Utilisation de la commande adb logcat afin de surveiller les flux en temps réel.
+2. Analyse dynamiqueUtilisation de la commande adb logcat afin de surveiller les flux en temps réel.
 Cette analyse a révélé des fuites d’informations dans les journaux système.
 
-Traçabilité de l’Audit
-Informations Générales
+# Traçabilité de l’Audit
+Informations Générales :Auditeur : BOUDHIH HAJAR ,Date : 14 Février 2026 ,Environnement : MEmu Android Emulator,Système : Android 9,Application testée : DIVA
 
-Auditeur : BOUDHIH HAJAR
+Éléments de Preuve:
+Des captures d’écran ont été réalisées pour documenter :Le lancement de l’application, L’activation du mode root ,L’état du Verified Boot, La consultation des données sensibles
 
-Date : 14 Février 2026
-
-Environnement : MEmu Android Emulator
-
-Système : Android 9
-
-Application testée : DIVA
-
-Éléments de Preuve
-
-Des captures d’écran ont été réalisées pour documenter :
-
-Le lancement de l’application
-
-L’activation du mode root
-
-L’état du Verified Boot
-
-La consultation des données sensibles
-
-État Final
-
+# État Final
 Les tests ont été réalisés dans un environnement virtualisé, dépourvu des protections standards actives.
+
 # Remise à Zéro de l'Environnement
+
+
+<img width="703" height="398" alt="Image" src="https://github.com/user-attachments/assets/7c3eb46f-3ca8-4994-860a-e23017f06b2d" />
+
+<img width="718" height="553" alt="Image" src="https://github.com/user-attachments/assets/10df6e14-4a5d-4338-9753-ad2283cf2985" />
+
+<img width="454" height="806" alt="Image" src="https://github.com/user-attachments/assets/5d884224-0760-41be-9637-12bad333e5c5" />
